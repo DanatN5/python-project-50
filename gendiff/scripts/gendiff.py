@@ -9,7 +9,6 @@ def main():
     parser.add_argument('second_file')
 
     args = parser.parse_args()
-    print('Yo!')
     
 
 
