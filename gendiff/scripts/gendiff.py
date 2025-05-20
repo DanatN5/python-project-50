@@ -1,4 +1,5 @@
 import argparse
+from gendiff.load_files import load_files
 
 def main():
     description = 'Compares two configuration files and shows a difference.'
@@ -11,6 +12,10 @@ def main():
                          help='set format out of output')
 
     args = parser.parse_args()
+
+    print(load_files(args.first_file, args.second_file))
+
+    
     
 
 
