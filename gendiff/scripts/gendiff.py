@@ -1,12 +1,14 @@
 import argparse
 
-parser = argparse.ArgumentParser()
-
-parser.add_argument('first_file')
-parser.add_argument('second_file')
-
 def main():
-    parser
+    description = 'Compares two configuration files and shows a difference.'
+
+    parser = argparse.ArgumentParser(description=description)
+
+    parser.add_argument('first_file')
+    parser.add_argument('second_file')
+
+    args = parser.parse_args()
     print('Yo!')
     
 
