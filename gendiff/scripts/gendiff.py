@@ -15,9 +15,9 @@ def main():
 
     arg1, arg2 = load_files(args.first_file, args.second_file)
 
-    return gen_diff(arg1, arg2)
+    return generate_diff(arg1, arg2)
 
-def gen_diff(data1, data2):
+def generate_diff(data1, data2):
     keys = data1.keys() | data2. keys()
     result = '{\n'
     for key in keys:
