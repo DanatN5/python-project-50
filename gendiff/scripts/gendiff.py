@@ -13,7 +13,26 @@ def main():
 
     args = parser.parse_args()
 
-    print(load_files(args.first_file, args.second_file))
+    arg1, arg2 = load_files(args.first_file, args.second_file)
+
+    return gen_diff(arg1, arg2)
+
+def gen_diff(data1, data2):
+    keys = data1.keys() | data2. keys()
+    result = '{\n'
+    for key in keys:
+        if key not in data1:
+            result += f'  + {str(key)}: {str(data2[key])}\n'
+        elif key not in data2:
+            result += f'  - {str(key)}: {str(data1[key])}\n'
+        elif data1[key] == data2[key]:
+            result += f'    {str(key)}: {str(data1[key])}\n'
+        else:
+            result += f'  - {str(key)}: {str(data1[key])}\n+ {str(key)} : {str(data2[key])}\n'
+    result += '\n}'
+    
+    return result
+
 
     
     
