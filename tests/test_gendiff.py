@@ -1,5 +1,5 @@
-from gendiff import generate_diff
-from gendiff import load_files
+from gendiff import generate_diff, load_files
+
 
 def test_gendiff():
     data1, data2 = load_files('tests/test_data/file1.json', 'tests/test_data/file2.json')
