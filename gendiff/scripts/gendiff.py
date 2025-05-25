@@ -1,5 +1,7 @@
 import argparse
+
 from gendiff.load_files import load_files
+
 
 def main():
     description = 'Compares two configuration files and shows a difference.'
@@ -17,8 +19,9 @@ def main():
 
     return generate_diff(arg1, arg2)
 
+
 def generate_diff(data1, data2):
-    keys = data1.keys() | data2. keys()
+    keys = sorted(data1.keys() | data2. keys())
     result = '{\n'
     for key in keys:
         if key not in data1:
@@ -28,14 +31,13 @@ def generate_diff(data1, data2):
         elif data1[key] == data2[key]:
             result += f'    {str(key)}: {str(data1[key])}\n'
         else:
-            result += f'  - {str(key)}: {str(data1[key])}\n+ {str(key)} : {str(data2[key])}\n'
-    result += '\n}'
+            result += (
+                f'  - {str(key)}: {str(data1[key])}\n'
+                f'  + {str(key)}: {str(data2[key])}\n'
+            )
+    result += '}'
     
     return result
-
-
-    
-    
 
 
 if __name__ == "__main__":
