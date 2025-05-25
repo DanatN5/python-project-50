@@ -56,22 +56,20 @@ wheels = [
 name = "hexlet-code"
 version = "0.1.0"
 source = { editable = "." }
-dependencies = [
-    { name = "pytest-cov" },
-]
 
 [package.dev-dependencies]
 dev = [
     { name = "pytest" },
+    { name = "pytest-cov" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pytest-cov", specifier = ">=6.1.1" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "pytest", specifier = ">=8.3.5" },
+    { name = "pytest-cov", specifier = ">=6.1.1" },
     { name = "ruff", specifier = ">=0.11.11" },
 ]
 
