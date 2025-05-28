@@ -7,4 +7,4 @@
 
 
 Демонстрация работы программы:
- https://asciinema.org/a/67Z4CG6MlxO2o2drDlvSPxWai
+  https://asciinema.org/a/eFkqRBiYWPed2i0t1thd402pV

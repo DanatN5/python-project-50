@@ -13,6 +13,9 @@ package-install:
 reinstall:
 	uv tool install --force dist/*.whl
 
+uninstall:
+	uv tool uninstall hexlet-code
+
 test:
 	uv run pytest
 
