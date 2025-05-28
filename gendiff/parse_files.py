@@ -1,6 +1,7 @@
 import json
-import yaml
 from pathlib import Path
+
+import yaml
 
 
 def parse_files(file1_name1, file_name2):
@@ -15,5 +16,6 @@ def parse_files(file1_name1, file_name2):
             file2 = yaml.safe_load(data2)
     
     return [file1, file2]
+
 
 print(parse_files('tests/test_data/file1.yaml', 'tests/test_data/file2.yml'))

@@ -1,10 +1,13 @@
-from gendiff import generate_diff, parse_files
-from pathlib import Path
 import json
+from pathlib import Path
+
 import yaml
 
+from gendiff import generate_diff, parse_files
+
 with open('tests/test_data/flat_diff.txt') as file:
-        gendiff_result = file.read()
+    gendiff_result = file.read()
+
 
 def test_gendiff_json():
     data1, data2 = parse_files('tests/test_data/file1.json',
@@ -15,7 +18,7 @@ def test_gendiff_json():
 
 def test_gendiff_yaml():
     data1, data2 = parse_files('tests/test_data/file1.yaml',
-                              'tests/test_data/file2.yaml')
+                              'tests/test_data/file2.yml')
         
     assert generate_diff(data1, data2) == gendiff_result
 
@@ -29,7 +32,8 @@ def test_parse_files_json():
      
     assert parse_files(path_json1, path_json2) == [file1, file2]
 
-def test_parse_files_json():
+
+def test_parse_files_yaml():
     path_yaml1 = 'tests/test_data/file1.yaml'
     path_yaml2 = 'tests/test_data/file2.yml'
     with open(Path(path_yaml1)) as data1, open(Path(path_yaml2)) as data2:
