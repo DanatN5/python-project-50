@@ -21,23 +21,29 @@ def main():
 
 
 def generate_diff(data1, data2):
-    keys = sorted(data1.keys() | data2. keys())
-    result = '{\n'
-    for key in keys:
+    common_keys = sorted(data1.keys() | data2. keys())
+    result = {}        
+    for key in common_keys:
+        val1 = data1.get(key)
+        val2 = data2.get(key)
         if key not in data1:
-            result += f'  + {str(key)}: {str(data2[key])}\n'
+            result[key] = {'status':'added',
+                           'value': val2}
         elif key not in data2:
-            result += f'  - {str(key)}: {str(data1[key])}\n'
-        elif data1[key] == data2[key]:
-            result += f'    {str(key)}: {str(data1[key])}\n'
+            result[key] = {'status':'deleted',
+                           'value': val1}
+        elif isinstance(val1, dict) and isinstance(val2, dict):
+            result[key] = {'status': 'nested',
+                           'children': generate_diff(val1, val2)}
+        elif val2 != val1:
+            result[key] = {'status':'updated',
+                           'old_value': val1,
+                           'new_value': val2}
         else:
-            result += (
-                f'  - {str(key)}: {str(data1[key])}\n'
-                f'  + {str(key)}: {str(data2[key])}\n'
-            )
-    result += '}'
-    
+            result[key] = {'status':'unchanged',
+                           'value': val1}
     return result
+
 
 
 if __name__ == "__main__":
