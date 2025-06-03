@@ -50,8 +50,8 @@ def generate_diff(data1, data2, format_name='stylish'):
         return result
 
     difference = diff(data1, data2)    
-    format = FORMATTERS.get(format_name)
-    result = format(difference)
+    formatter = FORMATTERS.get(format_name)
+    result = formatter(difference)
     return result
 
 
