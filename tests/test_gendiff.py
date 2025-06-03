@@ -9,35 +9,54 @@ with open('tests/test_data/flat_diff.txt') as file:
     gendiff_result_flat = file.read()
 
 with open('tests/test_data/diff.txt') as file:
+    gendiff_result = file.read()
+
+with open('tests/test_data/plain_diff.txt') as file:
     gendiff_result_plain = file.read()
 
 
-def test_gendiff_json():
+def test_gendiff_flat_json():
     data1, data2 = parse_files('tests/test_data/file1.json',
                               'tests/test_data/file2.json')
      
     assert generate_diff(data1, data2) == gendiff_result_flat
 
 
-def test_gendiff_yaml():
+def test_gendiff_flat_yaml():
     data1, data2 = parse_files('tests/test_data/file1.yaml',
                               'tests/test_data/file2.yml')
         
     assert generate_diff(data1, data2) == gendiff_result_flat
 
 
+def test_gendiff_json():
+    data1, data2 = parse_files('tests/test_data/file3.json',
+                              'tests/test_data/file4.json')
+     
+    assert generate_diff(data1, data2) == gendiff_result
+
+
+def test_gendiff_yaml():
+    data1, data2 = parse_files('tests/test_data/file3.yaml',
+                              'tests/test_data/file4.yaml')
+        
+    assert generate_diff(data1, data2) == gendiff_result
+
+
 def test_gendiff_plain_json():
     data1, data2 = parse_files('tests/test_data/file3.json',
                               'tests/test_data/file4.json')
      
-    assert generate_diff(data1, data2) == gendiff_result_plain
+    assert generate_diff(data1, data2, 
+                         format_name='plain') == gendiff_result_plain
 
 
 def test_gendiff_plain_yaml():
     data1, data2 = parse_files('tests/test_data/file3.yaml',
                               'tests/test_data/file4.yaml')
         
-    assert generate_diff(data1, data2) == gendiff_result_plain
+    assert generate_diff(data1, data2, 
+                         format_name='plain') == gendiff_result_plain
 
 
 def test_parse_files_json():
