@@ -19,35 +19,35 @@ with open('tests/test_data/json_diff.txt') as file:
 
 
 def test_gendiff_flat_json():
-    data1, data2 = parse_files('tests/test_data/file1.json',
+    data1, data2 = ('tests/test_data/file1.json',
                               'tests/test_data/file2.json')
      
     assert generate_diff(data1, data2) == gendiff_result_flat
 
 
 def test_gendiff_flat_yaml():
-    data1, data2 = parse_files('tests/test_data/file1.yaml',
+    data1, data2 = ('tests/test_data/file1.yaml',
                               'tests/test_data/file2.yml')
         
     assert generate_diff(data1, data2) == gendiff_result_flat
 
 
 def test_gendiff_json():
-    data1, data2 = parse_files('tests/test_data/file3.json',
+    data1, data2 = ('tests/test_data/file3.json',
                               'tests/test_data/file4.json')
      
     assert generate_diff(data1, data2) == gendiff_result
 
 
 def test_gendiff_yaml():
-    data1, data2 = parse_files('tests/test_data/file3.yaml',
+    data1, data2 = ('tests/test_data/file3.yaml',
                               'tests/test_data/file4.yaml')
         
     assert generate_diff(data1, data2) == gendiff_result
 
 
 def test_gendiff_json_format_json():
-    data1, data2 = parse_files('tests/test_data/file3.json',
+    data1, data2 = ('tests/test_data/file3.json',
                               'tests/test_data/file4.json')
      
     assert generate_diff(data1, data2, 
@@ -55,7 +55,7 @@ def test_gendiff_json_format_json():
 
 
 def test_gendiff_json_format_yaml():
-    data1, data2 = parse_files('tests/test_data/file3.yaml',
+    data1, data2 = ('tests/test_data/file3.yaml',
                               'tests/test_data/file4.yaml')
         
     assert generate_diff(data1, data2, 
@@ -63,7 +63,7 @@ def test_gendiff_json_format_yaml():
 
 
 def test_gendiff_plain_json():
-    data1, data2 = parse_files('tests/test_data/file3.json',
+    data1, data2 = ('tests/test_data/file3.json',
                               'tests/test_data/file4.json')
      
     assert generate_diff(data1, data2, 
@@ -71,7 +71,7 @@ def test_gendiff_plain_json():
 
 
 def test_gendiff_plain_yaml():
-    data1, data2 = parse_files('tests/test_data/file3.yaml',
+    data1, data2 = ('tests/test_data/file3.yaml',
                               'tests/test_data/file4.yaml')
         
     assert generate_diff(data1, data2, 
