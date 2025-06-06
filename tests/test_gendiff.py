@@ -1,10 +1,11 @@
-import pytest
 import json
 from pathlib import Path
 
+import pytest
 import yaml
 
 from gendiff import generate_diff, parse_files
+
 
 @pytest.mark.parametrize(
     'file1, file2, format_name, expected',
@@ -23,7 +24,7 @@ from gendiff import generate_diff, parse_files
          'json', 'tests/test_data/json_diff.txt'),
     ]
 )
-def test_generate_diff(file1,file2, format_name, expected):
+def test_generate_diff(file1, file2, format_name, expected):
     with open(expected) as file:
         expected_result = file.read()
     result = generate_diff(file1, file2, format_name=format_name)

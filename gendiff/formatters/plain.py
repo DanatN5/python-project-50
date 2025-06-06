@@ -28,11 +28,12 @@ def plain_format(data):
 
 
 def format_line(value):
-
-    if isinstance(value, dict):
+    if value is None:
+        return "null"
+    elif isinstance(value, dict):
         return '[complex value]'
     elif isinstance(value, str):
         return f"'{value}'"
     elif isinstance(value, bool):
         return str(value).lower()
-    return 'null' if value is None else str(value)  
+    return str(value)  

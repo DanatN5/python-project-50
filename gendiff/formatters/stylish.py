@@ -44,8 +44,10 @@ def stylish_format(data, replacer=' ', count=4):
 
 
 def format_line(value, depth, indent):
-        
-    if isinstance(value, dict):
+    if value is None:
+        return "null"    
+
+    elif isinstance(value, dict):
             
         current_indent = indent * depth
         deep_indent = indent * (depth + 1)
@@ -57,4 +59,4 @@ def format_line(value, depth, indent):
     elif isinstance(value, bool):
         return str(value).lower()
         
-    return 'null' if value is None else str(value)
+    return str(value)

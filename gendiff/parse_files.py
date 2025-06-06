@@ -17,3 +17,8 @@ def parse_files(file1_name1, file_name2):
             file2 = yaml.safe_load(data2)
     
     return [file1, file2]
+
+
+with open('tests/test_data/file21.json') as file:
+    r = file.read()
+    print(r)
