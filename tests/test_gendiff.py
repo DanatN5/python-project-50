@@ -18,9 +18,9 @@ from gendiff import generate_diff, parse_files
          'stylish', 'tests/test_data/result_stylish.txt'),
          ('tests/test_data/file11.yml', 'tests/test_data/file21.yml',
          'plain', 'tests/test_data/result_plain.txt'),
-         ('tests/test_data/file3.json', 'tests/test_data/file4.json',
+         ('tests/test_data/file1.json', 'tests/test_data/file2.json',
          'json', 'tests/test_data/json_diff.txt'),
-         ('tests/test_data/file3.yaml', 'tests/test_data/file4.yaml',
+         ('tests/test_data/file1.yaml', 'tests/test_data/file2.yaml',
          'json', 'tests/test_data/json_diff.txt'),
     ]
 )
@@ -33,8 +33,8 @@ def test_generate_diff(file1, file2, format_name, expected):
 
 
 def test_parse_files_json():
-    path_json1 = 'tests/test_data/file3.json'
-    path_json2 = 'tests/test_data/file4.json'
+    path_json1 = 'tests/test_data/file1.json'
+    path_json2 = 'tests/test_data/file2.json'
     with open(Path(path_json1)) as data1, open(Path(path_json2)) as data2:
         file1 = json.load(data1)
         file2 = json.load(data2)
@@ -43,8 +43,8 @@ def test_parse_files_json():
 
 
 def test_parse_files_yaml():
-    path_yaml1 = 'tests/test_data/file3.yaml'
-    path_yaml2 = 'tests/test_data/file4.yaml'
+    path_yaml1 = 'tests/test_data/file1.yaml'
+    path_yaml2 = 'tests/test_data/file2.yaml'
     with open(Path(path_yaml1)) as data1, open(Path(path_yaml2)) as data2:
         file1 = yaml.safe_load(data1)
         file2 = yaml.safe_load(data2)
