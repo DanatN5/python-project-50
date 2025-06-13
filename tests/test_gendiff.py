@@ -21,7 +21,7 @@ from gendiff import generate_diff
     ]
 )
 def test_generate_diff(file1, file2, format_name, expected):
-    with open(expected) as file:
+    with open(expected, encoding='utf-8') as file:
         expected_result = file.read()
     result = generate_diff(file1, file2, format_name=format_name)
     
