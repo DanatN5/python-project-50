@@ -1,5 +1,5 @@
 from gendiff.formatters import FORMATTERS
-from gendiff.parse_files import parse_files
+from gendiff.scripts.parse_files import parse_files
 
 
 def generate_diff(data1, data2, format_name='stylish'):
